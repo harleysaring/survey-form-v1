@@ -1,4 +1,4 @@
-const Mysql                 = require('mysql');
+const Mysql                 = require('mysql2');
 const Model 				= require('./model');
 const Constants 			= require('../config/constants');
 
@@ -46,11 +46,27 @@ class SurveyModel extends Model {
 
 	// supply the logic for each function:
 	generateCaptcha(){
-		return ""; 
+		let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIGJKLMNOPQRSTUVWXYZ";
+		let captcha = "";
+		
+		for(let i = 1; i <= 8; i++) {
+			let random = Math.floor(Math.random() * 52);
+			captcha += letters[random];
+		}
+
+		this.captcha = captcha;
+		return captcha; 
 	}
 
 	verifyCaptchaInput(input){
-		return ""; 
+		let result = ""
+		if(input == this.captcha) {
+			result = "Success! Captcha input matched.";
+		}
+		else {
+			result = "Error! Captcha input doesn't matched.";
+		}
+		return result; 
 	}
 }
 
