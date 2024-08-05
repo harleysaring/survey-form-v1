@@ -34,9 +34,6 @@ class SurveyController extends Controller {
     }
 
     // Testing jenkins
-    // First Try
-    // ==============
-    // Another test
-    // Second Try
+    // Another trial
 }
 module.exports = SurveyController;
