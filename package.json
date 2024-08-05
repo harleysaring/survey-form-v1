@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha",
+    "test": "set NODE_ENV=test&&mocha",
     "start-windows": "set NODE_ENV=test && nodemon app.js",
     "start-linux": "NODE_ENV=test nodemon app.js",
     "start-mac": "NODE_ENV=test nodemon app.js",
